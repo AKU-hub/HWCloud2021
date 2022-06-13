@@ -4,7 +4,10 @@
 
 初赛训练数据集包含红灯、绿灯、黄灯、人行横道、限速标志、解除限速标志六种类型图片，需使用ModelArts数据管理模块完成以上六种检测目标的标注。参赛者可使用**任意深度学习框架**框架建立目标检测模型
 
-## 解决方案及算法介绍
+## 基本思路
++ 因初赛不限定
+
+## 解决方案
 + 数据集: [初赛数据](https://marketplace.huaweicloud.com/markets/aihub/datasets/detail/?content_id=93d35831-c084-4003-b175-4280ef289379)
 + 数据增强
     + [Albumentations](https://github.com/albumentations-team/albumentations): 因交通灯对颜色敏感，去掉色彩类增强
