@@ -1,7 +1,5 @@
-# ICRA 2021 RoboMaster AI Challenge
-该项目是ICRA2021 AI Challenge **同舟共济的哥哥**战队的Perception功能代码展示
-
-Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discussions are welcomed! 
+# 2021 第三届华为云人工智能大赛 · 无人车挑战杯 方案分享
+该项目初赛CenterNet2模型源码
 
 ## Summary
 
