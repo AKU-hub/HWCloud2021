@@ -2,7 +2,7 @@
 ## 复赛赛题
 初赛Top40进入[复赛](https://competition.huaweicloud.com/information/1000041539/fusai), **参赛者需基于MindSpore框架（使用其他框架提交的作品无效）建立目标检测模型**，模型输出格式、数据标注及说明、评分标准和[初赛](https://competition.huaweicloud.com/information/1000041539/circumstance) 一致。
 ## 基本思路
-+ 复赛只有一周时间, 每天只能提交一次, 必须使用MindSpore, 从战略角度，基本可以放弃迁移框架算法的想法, 否则到后面即便迁移, 也没有提交的机会了(而且这平台一言难尽)
++ 复赛只有一周时间, 每天只能提交一次, 必须使用MindSpore, 从战略角度，基本可以放弃迁移框架算法的想法, 否则到后面即便迁移成功, 也没有提交的机会了(而且这平台一言难尽)
 + 基本思路就是找现成MindSpore算法, 官方提供了一个YOLOv3的[Baseline](https://developer.huaweicloud.com/develop/aigallery/article/detail?id=81b7eaf2-e767-4937-822f-e3e887c73380) (但据我所知凡是用这个Baseline的, mAP没有超过0.01的)
 
 ## 解决方案
