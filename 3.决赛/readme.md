@@ -23,4 +23,17 @@
 `考虑到实时性以及稳定性等实际需要, 这部分放弃使用深度学习方法, 转而采用传统OpenCV方法, 亲测有效！`
 ### 斑马线识别
 ![示图](./figs/pedestrian.png)
++ 基本策略是找斑马线内部**矩阵关键点**
 + 如图所示, 由于相机视角原因, 只有下半张图像能拍到赛道信息, 因此我们可以直接对原图**减半**
++ 预处理: 减半, 卡HSV白色阈值, 二值化, 取反, 形态学操作(膨胀/腐蚀)去除噪声
+```
+image = image[512:, :]
+hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
+mask = cv.inRange(hsv, low_bound, high_bound)
+mask = cv.bitwise_not(mask)
+kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3), (-1, -1))
+mask = cv.dilate(mask, kernel)
+mask = cv.erode(mask, kernel)
+```
+![preprocess](./figs/preprocess.png)
+
