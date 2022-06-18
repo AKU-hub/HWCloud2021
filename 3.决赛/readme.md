@@ -66,3 +66,4 @@ if len(cad_point) == 2:
     cv.circle(image, tuple(cad_point[1]), 3, (255, 255, 0), 3)
 ```
 ![corner](./figs/corner.png)
++ **最后**, 根据识别出的关键点数量是否大于一定阈值来判断是否识别到斑马线
