@@ -12,10 +12,12 @@
 + 考虑硬件设施,
 ## 交通灯&交通标志检测
 `这部分其实就跟初赛/复赛差不多, 难点主要在于需要落地`
-+ 数据集: [初赛数据](https://marketplace.huaweicloud.com/markets/aihub/datasets/detail/?content_id=93d35831-c084-4003-b175-4280ef289379)和[复赛数据](https://marketplace.huaweicloud.com/markets/aihub/notebook/detail/?id=0fbf9486-9e71-41f0-9295-3d75b68b15db)
-+ 数据增强：[albu](https://github.com/albumentations-team/albumentations)和[imagecorruptions](https://github.com/bethgelab/imagecorruptions)
++ 数据集: 现场采集，现场标
++ 数据增强：同初赛/复赛
+    + 既然是线下，主要策略还是多采集
 + 后处理： tta+wbf, 使用[wbf](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)进行多尺度集成，wbf应该是目前性能最好后处理方法，优于nms, soft-nms, nmw
-+ 检测模型：[YoloV4](https://gitee.com/ascend/modelzoo/tree/master/built-in/MindSpore/Official/cv/detection/YOLOv4_Cspdarknet53_for_MindSpore), 在本次比赛中我们集成了两个yolov4模型，模型一使用albu增广，模型二使用albu+imagecorruptions增广，可以提升方案的鲁棒性。和只使用模型一相比，堆叠模型二后可以带来2个点左右的涨点
++ 检测模型：YOLOv3-Hilens, 由于代码需要部署到HiLens Kit(昇腾 310), 初赛/复赛的代码基本上都难以使用, 而且决赛是要实现**一整套无人车系统**, 这
+部分只是任务之一, 从策略上讲, 要考虑时间成本与受益, 因此我们采纳官方的建议, 使用官方 在本次比赛中我们集成了两个yolov4模型，模型一使用albu增广，模型二使用albu+imagecorruptions增广，可以提升方案的鲁棒性。和只使用模型一相比，堆叠模型二后可以带来2个点左右的涨点
 
 **感谢以上作者的开源工作！！！**
 
