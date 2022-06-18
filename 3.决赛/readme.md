@@ -47,3 +47,22 @@ for i, contour in enumerate(contours):
     if len(contours_poly[i]) < 4 or len(contours_poly[i]) > 7: continue  # 筛掉奇怪边形
 ```
 ![polygon](./figs/polygon.png)
++ **复筛**: 通过斜率、尺度等标准, 筛选得出内置矩形的上角点
+```
+for j in range(len(contours_poly[i])):
+    k = calculate_ratio(contours_poly[i][j], contours_poly[i][(j + 1) % len(contours_poly[i])])  # 算斜率找关键点
+    if abs(k) > k_thres_ and get_distance(contours_poly[i][j],
+                                          contours_poly[i][(j + 1) % len(contours_poly[i])]) > 10:
+        if contours_poly[i][j][0][1] < contours_poly[i][(j + 1) % len(contours_poly[i])][0][1]:
+            set_point(cad_point, contours_poly[i][j][0])
+        else:
+            set_point(cad_point, contours_poly[i][(j + 1) % len(contours_poly[i])][0])
+    else:
+        print('k:', k)
+if len(cad_point) == 2:
+    up_corner.append(cad_point[0])
+    up_corner.append(cad_point[1])
+    cv.circle(image, tuple(cad_point[0]), 3, (255, 255, 0), 3)
+    cv.circle(image, tuple(cad_point[1]), 3, (255, 255, 0), 3)
+```
+![corner](./figs/corner.png)
