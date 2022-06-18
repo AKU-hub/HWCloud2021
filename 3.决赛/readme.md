@@ -73,4 +73,15 @@ if len(cad_point) == 2:
 + **基本策略**: 这部分仍然沿用经典方法**阈值法**
 + **预处理**: 同上, 减半, 卡阈值, 膨胀腐蚀. 虽然车道线是黄色的, 但在现场**灯光**影响下，
 有时呈白色, 因此不能直接卡黄色阈值, 解决策略是卡亮度阈值, 但狠明显, 会误伤白色的斑马线
+```
+image = image[512:, :]
+hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
+mask = cv.inRange(hsv, low, high)
+mask = cv.bitwise_not(mask)
+kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
+mask = cv.dilate(mask, kernel)
+mask = cv.erode(mask, kernel)
+```
 ![sight](./figs/sight.png)
++ **再处理**: 解决误伤的最简单办法是, 卡白色阈值识别斑马线, 然后**异或**即可
+![white](./figs/white.png)
