@@ -23,9 +23,9 @@
 `考虑到实时性以及稳定性等实际需要, 这部分放弃使用深度学习方法, 转而采用传统OpenCV方法, 亲测有效！`
 ### 斑马线识别
 ![示图](./figs/pedestrian.png)
-+ 基本策略是找斑马线内部**矩阵关键点**
++ **基本策略**: 找斑马线内部**矩阵关键点**
 + 如图所示, 由于相机视角原因, 只有下半张图像能拍到赛道信息, 因此我们可以直接对原图**减半**
-+ 预处理: 减半, 卡HSV白色阈值, 二值化, 取反, 形态学操作(膨胀/腐蚀)去除噪声
++ **预处理**: 减半, 卡HSV白色阈值, 二值化, 取反, 形态学操作(膨胀/腐蚀)去除噪声
 ```
 image = image[512:, :]
 hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
@@ -36,4 +36,14 @@ mask = cv.dilate(mask, kernel)
 mask = cv.erode(mask, kernel)
 ```
 ![preprocess](./figs/preprocess.png)
-
++ **初筛**: 用OpenCV内置函数, 找轮廓, 拟合多边形, 因为视角下的斑马线内部通常为四边形, 少部分视角下可能会五边形, 基于此, 
+可以剔除一些干扰
+```
+contours, hierarchy = cv.findContours(mask, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)  # 找轮廓
+contours_poly = []
+up_corner = []
+for i, contour in enumerate(contours):
+    contours_poly.append(cv.approxPolyDP(contour, 5, True))  # 拟合多边形
+    if len(contours_poly[i]) < 4 or len(contours_poly[i]) > 7: continue  # 筛掉奇怪边形
+```
+![polygon](./figs/polygon.png)
