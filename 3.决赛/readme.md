@@ -83,5 +83,7 @@ mask = cv.dilate(mask, kernel)
 mask = cv.erode(mask, kernel)
 ```
 ![sight](./figs/sight.png)
-+ **再处理**: 解决误伤的最简单办法是, 卡白色阈值识别斑马线, 然后**异或**即可
++ **再处理**: 解决误伤的最简单办法是, 卡白色阈值识别斑马线
 ![white](./figs/white.png)
+* **最后**, 二者**异或**即可
+![white](./figs/line.png)
