@@ -9,8 +9,9 @@
 ## 基本思路
 + 完整的无人车系统通常包含**感知、定位、导航、决策、控制**五个部位, 由于本人是CV方向，因此主要负责其中的视觉感知部分
 + 决赛中的视觉感知任务主要包括**交通灯**(出发&泊车)、**交通标志**(加速&减速)、**斑马线**(停车)、**车道线**(巡线行驶)
-+ 
-## 解决方案
++ 考虑硬件设施,
+## 交通灯&交通标志检测
+`这部分其实就跟初赛/复赛差不多, 难点主要在于需要落地`
 + 数据集: [初赛数据](https://marketplace.huaweicloud.com/markets/aihub/datasets/detail/?content_id=93d35831-c084-4003-b175-4280ef289379)和[复赛数据](https://marketplace.huaweicloud.com/markets/aihub/notebook/detail/?id=0fbf9486-9e71-41f0-9295-3d75b68b15db)
 + 数据增强：[albu](https://github.com/albumentations-team/albumentations)和[imagecorruptions](https://github.com/bethgelab/imagecorruptions)
 + 后处理： tta+wbf, 使用[wbf](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)进行多尺度集成，wbf应该是目前性能最好后处理方法，优于nms, soft-nms, nmw
