@@ -1,6 +1,9 @@
 # 2021 第三届华为云人工智能大赛 · 无人车挑战杯 方案分享
 ## 赛题介绍
-本届[无人车挑战杯](https://competition.huaweicloud.com/information/1000041539/introduction)大赛主要考核点有交通信号灯识别、车道线检测、斑马线检测、限速标志识别、施工标志识别、障碍物检测等，其中交通信号灯、斑马线、限速标志检测算法需要基于AI开发平台ModelArts开发。训练数据集包含红灯、绿灯、黄灯、人行横道、限速标志、解除限速标志六种类型图片，需使用ModelArts数据管理模块完成以上六种检测目标的标注。参赛者需基于**MindSpore**框架（使用其他框架提交的作品无效）建立目标检测模型
+本赛事是由沈抚改革创新示范区与华为（辽宁）人工智能创新中心、上海交通大学三方合作，共同主办的面向全国的人工智能交流赛事。大赛基于华为云人工智能平台（一站式AI开发平台ModelArts、端云协同多模态AI开发应用平台HiLens）及无人驾驶小车，全面锻炼和提高赛队的AI解决方案能力及无人驾驶编程技巧。
+
+本届[无人车挑战杯](https://competition.huaweicloud.com/information/1000041539/introduction) 大赛主要考核点有交通信号灯识别、车道线检测、斑马线检测、限速标志识别、施工标志识别、障碍物检测等，其中交通信号灯、斑马线、限速标志检测算法需要基于AI开发平台ModelArts开发， 训练数据集包含红灯、绿灯、黄灯、人行横道、限速标志、解除限速标志六种类型图片
+
 Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discussions are welcomed! 
 
 ## 解决方案及算法介绍
@@ -29,19 +32,4 @@ Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discu
 ```
 mkdir -p data/annotations
 python pascal2coco.py
-```
-
-### 预训练模型下载
-[coco预训练模型](https://mindspore.cn/resources/hub/details?MindSpore/ascend/1.1/yolov4_v1.1)下载完后放在weights文件夹下面
-
-### 模型训练
-```
-sh train.sh
-```
-生成的模型在weights文件夹下
-
-## 模型推理
-测试图片放在samples文件夹下，推理结果在outputs文件夹下，该脚本可以本地运行，也可以直接用于部署Modelarts在线服务和批量服务
-```
-python customize_service.py
 ```
