@@ -27,4 +27,5 @@
     + 总的来说, 线下决赛更考验**动手实践**能力、**临场应变**能力以及**团队协作**能力, 虽然发生了小插曲, 但个人从中
     也得到了成长
 
-#### Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discussions are welcomed! 
+## QA 
+Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discussions are welcomed! 
