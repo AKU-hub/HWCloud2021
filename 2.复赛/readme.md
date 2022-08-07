@@ -26,24 +26,5 @@
 + mindspore 1.3.0
 
 
-## 模型训练复现流程
-### 数据集准备
-训练集标签放在`data/annotations_xml`下，训练集图片放在`data/train`下
+## 实验结果
 
-### 将voc格式的标签转为coco格式
-```
-mkdir -p data/annotations
-python pascal2coco.py
-```
-
-### 模型训练
-```
-sh train.sh
-```
-生成的模型在weights文件夹下
-
-## 模型推理
-测试图片放在samples文件夹下，推理结果在outputs文件夹下，该脚本可以本地运行，也可以直接用于部署Modelarts在线服务和批量服务
-```
-python customize_service.py
-```
