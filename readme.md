@@ -28,6 +28,6 @@
     也得到了成长
 
 ## QA 
-`ps：有些方案赛后才研究出，比赛中并未使用`
+`PS：有些方案赛后才研究出，比赛中并未使用`
 
 Contact: [ru_yi_zhao@163.com](mailto:ru_yi_zhao@163.com). Any questions or discussions are welcomed! 
